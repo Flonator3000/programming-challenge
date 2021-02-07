@@ -29,7 +29,11 @@ public class CsvParser implements IFileParser {
 
     @Override
     public List<Football> parseFootball(String filePath) {
-        throw new UnsupportedOperationException();
+        String[] rows = parse(filePath);
+        return Arrays.stream(rows)
+                .skip(1)
+                .map(row -> new Football(row))
+                .collect(Collectors.toList());
     }
 
     /**

@@ -1,9 +1,11 @@
 package de.exxcellent.challenge;
 
+import de.exxcellent.challenge.analysis.FootballAnalyzer;
 import de.exxcellent.challenge.analysis.WeatherAnalyzer;
 import de.exxcellent.challenge.file.CsvParser;
 import de.exxcellent.challenge.file.IFileParser;
 import de.exxcellent.challenge.model.FileType;
+import de.exxcellent.challenge.model.Football;
 import de.exxcellent.challenge.model.Topic;
 import de.exxcellent.challenge.model.Weather;
 
@@ -41,6 +43,10 @@ public class SpreadController {
                 List<Weather> weathers = fileParser.parseWeather(filePath);
                 WeatherAnalyzer weatherAnalyzer = new WeatherAnalyzer();
                 return String.valueOf(weatherAnalyzer.calculateSpread(weathers));
+            case FOOTBALL:
+                List<Football> footballs = fileParser.parseFootball(filePath);
+                FootballAnalyzer footballAnalyzer = new FootballAnalyzer();
+                return footballAnalyzer.calculateSpread(footballs);
             default:
                 return null;
         }
