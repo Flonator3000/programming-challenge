@@ -1,5 +1,6 @@
 package de.exxcellent.challenge.file;
 
+import de.exxcellent.challenge.model.Football;
 import de.exxcellent.challenge.model.Weather;
 
 import java.io.IOException;
@@ -24,6 +25,11 @@ public class CsvParser implements IFileParser {
                 .skip(1)
                 .map(row -> new Weather(row))
                 .collect(Collectors.toList());
+    }
+
+    @Override
+    public List<Football> parseFootball(String filePath) {
+        throw new UnsupportedOperationException();
     }
 
     /**

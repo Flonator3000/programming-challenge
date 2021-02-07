@@ -8,6 +8,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class SpreadControllerTest {
 
     private String weatherTestCsvPath = "src/test/resources/de/exxcellent/challenge/weather.csv";
+    private String footballTestCsvPath = "src/test/resources/de/exxcellent/challenge/football.csv";
 
     @Test
     void testDetermineSpreadCsvWeather() {
@@ -15,6 +16,14 @@ class SpreadControllerTest {
         String day = spreadController.determineSpread(FileType.CSV, Topic.WEATHER, weatherTestCsvPath);
 
         assertEquals(day, "14");
+    }
+
+    @Test
+    void testDetermineSpreadCsvFootball() {
+        SpreadController spreadController = new SpreadController();
+        String team = spreadController.determineSpread(FileType.CSV, Topic.FOOTBALL, footballTestCsvPath);
+
+        assertEquals(team, "Aston_Villa");
     }
 
     // TODO Tests for other filetypes + invalid cases

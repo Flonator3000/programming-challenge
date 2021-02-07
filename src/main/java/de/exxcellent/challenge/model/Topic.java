@@ -9,7 +9,8 @@ import java.util.Map;
  * @author Florian Wörle
  */
 public enum Topic {
-    WEATHER("weather");
+    WEATHER("weather"),
+    FOOTBALL("football");
 
     private static final Map<String, Topic> CONSTANTS = new HashMap<>();
 
