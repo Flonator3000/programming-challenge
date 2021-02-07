@@ -11,7 +11,6 @@ import de.exxcellent.challenge.model.Weather;
 
 import java.util.List;
 
-
 /**
  * class SpreadController
  *
@@ -27,14 +26,17 @@ public class SpreadController {
      * @param filePath
      * @return
      */
-     public String determineSpread(FileType fileType, Topic topic, String filePath) {
-         switch (fileType) {
-             case CSV:
-                 IFileParser fileParser = new CsvParser();
-                 return determineSpread(fileParser, topic, filePath);
-             default:
-                 return null;
-         }
+    public String determineSpread(FileType fileType, Topic topic, String filePath) {
+        switch (fileType) {
+            case CSV:
+                IFileParser fileParser = new CsvParser();
+                return determineSpread(fileParser, topic, filePath);
+            case JSON:
+                //IFileParser fileParser = new JsonParser();
+                //return determineSpread(fileparser, topic, filePath);
+            default:
+                return null;
+        }
     }
 
     private String determineSpread(IFileParser fileParser, Topic topic, String filePath) {

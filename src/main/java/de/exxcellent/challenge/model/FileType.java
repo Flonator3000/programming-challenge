@@ -9,7 +9,8 @@ import java.util.Map;
  * @author Florian Wörle
  */
 public enum FileType {
-    CSV("csv");
+    CSV("csv"),
+    JSON("json");
 
     private static final Map<String, FileType> CONSTANTS = new HashMap<>();
 
